@@ -1,0 +1,12 @@
+diff --git a/node_modules/@popperjs/core/package.json b/node_modules/@popperjs/core/package.json
+index d4edd3a..a73d26d 100644
+--- a/node_modules/@popperjs/core/package.json
++++ b/node_modules/@popperjs/core/package.json
+@@ -17,6 +17,7 @@
+     "popper",
+     "positioning engine"
+   ],
++  "type": "module",
+   "funding": {
+     "type": "opencollective",
+     "url": "https://opencollective.com/popperjs"
