@@ -1,0 +1,87 @@
+@font-face {
+  font-family: Inter;
+  font-weight: 300;
+  src: url("~assets/fonts/Inter-Light.ttf");
+}
+@font-face {
+  font-family: Inter;
+  font-weight: 400;
+  src: url("~assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: Inter;
+  font-weight: 500;
+  src: url("~assets/fonts/Inter-Medium.ttf");
+}
+@font-face {
+  font-family: Inter;
+  font-weight: 600;
+  src: url("~assets/fonts/Inter-SemiBold.ttf");
+}
+@font-face {
+  font-family: Inter;
+  font-weight: 700;
+  src: url("~assets/fonts/Inter-Bold.ttf");
+}
+
+$primary: #620a38;
+$secondary: #B39A12;
+
+// Body
+$font-family-sans-serif: "Inter",georgia,serif;
+$body-bg: rgba(250, 245, 255, 0.5);
+$body-color:#272c33;
+
+// Buttons
+$btn-font-weight: 700;
+
+// Headings
+$headings-color: $primary;
+$headings-font-weight: 700;
+
+// Links
+$link-decoration: underline dotted;
+$link-hover-decoration: underline;
+
+$card-border-radius: 0;
+$nav-pills-link-active-color: #feebe2;
+$nav-tabs-link-active-color: #feebe2;
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #2f1121;
+}
+@media only screen and (min-width: 960px) {
+  .navbar .navbar-nav .nav-link {
+    padding: 1em 0.7em;
+  }
+  .navbar {
+    padding: 0;
+  }
+  .navbar .navbar-brand {
+    padding: 0 0.7em;
+  }
+}
+.navbar .navbar-nav .nav-link {
+  position: relative;
+}
+.navbar .navbar-nav .nav-link::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #2f1121;
+  color: transparent;
+  width: 0%;
+  content: '';
+  height: 3px;
+  transition: all 0.5s;
+}
+.navbar .navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar .navbar-nav .active::after {
+  width: 100%;
+}
+
