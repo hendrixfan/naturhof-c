@@ -7,7 +7,7 @@ useMeta({
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   bodyAttrs: {
-    class: 'h-100 scroll-padding-base position-relative'
+    class: 'scroll-padding-base bg-white'
   }
 })
 </script>

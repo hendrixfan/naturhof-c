@@ -1,5 +1,21 @@
 @import "bootstrap/scss/functions"; // Required
 
+$palette-colors: (
+  "light": rgb(254,224,183),
+  "lighter": rgb(255,211,136),
+  "base-light": rgb(251,170,84),
+  "base-center": rgb(250,152,74),
+  "base": rgb(226,80,42),
+  "base-dark": rgb(200,58,48),
+  "base-darker": rgb(131,21,46),
+  "darker": rgb(87,10,44),
+  "dark": rgb(42,12,24)
+)!default;
+
+@function color-palette($key: "base") {
+  @return map-get($palette-colors, $key);
+}
+
 @import "custom";
 
 @import "bootstrap/scss/variables"; // Required
@@ -31,18 +47,18 @@
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
 // @import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal"; // Requires transitions
+//@import "bootstrap/scss/modal"; // Requires transitions
 // @import "bootstrap/scss/tooltip";
 // @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
-// @import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/offcanvas";
 
 // Helpers
 @import "bootstrap/scss/helpers";
 
 // Utilities
 @import "bootstrap/scss/utilities/api";
-
-// My Extra GLOBAL Styles separate from Bootstrap
 @import "app";
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "@glidejs/glide/src/assets/sass/glide.theme";

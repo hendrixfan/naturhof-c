@@ -1,9 +1,11 @@
 import { ScrollSpy } from 'bootstrap';
 const setupScrollnav = () => {
   document.addEventListener('DOMContentLoaded', function () {
-    var scrollSpy = new ScrollSpy(document.body, {
-      target: '#main-nav'
-    })
+    if (document.getElementById('main-nav')) {
+      var scrollSpy = new ScrollSpy(document.body, {
+        target: '#main-nav'
+      })
+    }
   }, false);
 }
 

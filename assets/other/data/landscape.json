@@ -1,0 +1,42 @@
+[
+  {
+    "component": "Title",
+    "key": "title",
+    "offset": "1.0"
+  },
+  {
+    "component": "Layer0",
+    "key": "clouds",
+    "offset": "0.96"
+  },
+  {
+    "component": "Layer4",
+    "key": "see",
+    "offset": "0.83"
+  },
+  {
+    "component": "Layer5",
+    "key": "valley",
+    "offset": "0.8"
+  },
+  {
+    "component": "Layer6",
+    "key": "valley-1",
+    "offset": "0.75"
+  },
+  {
+    "component": "Layer7",
+    "key": "trees-1",
+    "offset": "0.4"
+  },
+  {
+    "component": "Layer8",
+    "key": "trees-2",
+    "offset": "0.2"
+  },
+  {
+    "component": "Layer9",
+    "key": "trees-3",
+    "offset": "0"
+  }
+]

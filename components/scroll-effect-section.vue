@@ -1,11 +1,10 @@
 <template lang='pug'>
 section.w-100.d-block(ref="sectionEl")
   slot
-  img.position-absolute.bottom-0(:src="effectImageUrl", height="700" ref="imageEl")
+  img.position-absolute.bottom-0.d-none.d-xl-block(:src="effectImageUrl", height="700" ref="imageEl")
 </template>
 <script>
 import {
-  computed,
   defineComponent,
   onBeforeMount,
   reactive,
@@ -31,7 +30,7 @@ export default defineComponent({
   setup(props) {
     const sectionEl = ref()
     const imageEl = ref()
-    const initXPos = -600
+    const initXPos = -700
     const { x, y } = useWindowScroll()
 
     const { motionProperties } = useMotionProperties(imageEl, {
@@ -45,7 +44,7 @@ export default defineComponent({
 
     const scrollHandler = (yValue) => {
       set({
-        [props.position]: initXPos + (yValue/8)*1.3
+        [props.position]: initXPos + (yValue/16)*1.2
       })
     }
     watch(y, (y, prevY) => {

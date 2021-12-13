@@ -3,7 +3,7 @@ header.banner.w-100.position-fixed.top-0(role='banner' style='z-index:4;')
   nav.navbar.navbar-expand-lg.navbar-light.nav-shadow.bg-dust#main-nav(ref="headerEl")
     .container
       a.navbar-brand.py-0(href='#')
-        img(src="~/assets/images/naturhof-c-logo.svg?url" alt="" width="250" ref="logoEl")
+        Logo(width="250" ref="logoEl")
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarNav.collapse.navbar-collapse
@@ -15,8 +15,6 @@ header.banner.w-100.position-fixed.top-0(role='banner' style='z-index:4;')
           li.nav-item
             a.nav-link(href='#participate') Aktiv werden
           li.nav-item
-            a.nav-link(href='#') Jobs
-          li.nav-item
             a.nav-link(href='#contact') Kontakt
 </template>
 <script>
@@ -26,7 +24,11 @@ import {
 import { useScroll } from '@vueuse/gesture'
 import { useWindowScroll } from '@vueuse/core'
 import { useMotionProperties, useSpring, useElementStyle } from '@vueuse/motion'
+import Logo from '~/assets/images/naturhof-c-logo.svg';
 export default defineComponent({
+  components: {
+    Logo
+  },
   setup() {
     const headerEl = ref(null)
     const logoEl = ref(null)

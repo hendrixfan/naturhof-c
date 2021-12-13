@@ -1,5 +1,9 @@
 <template>
-  <main class="h-100 w-100">
+<div class="d-flex flex-column min-vh-100">
+  <FullAppHeader />
+  <main class="main-content">
     <slot />
   </main>
+  <AppFooterSimple />
+</div>
 </template>

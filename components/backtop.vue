@@ -1,5 +1,5 @@
 <template lang='pug'>
-button.btn.btn-primary.position-fixed(
+button.btn.btn-dark.position-fixed(
   type="button"
   v-if="visible"
   @click.stop="handleClick"
@@ -63,7 +63,7 @@ export default defineComponent({
     }
 
     const handleScroll = () => {
-      if (el.value) visible.value = el.value.scrollTop >= 200
+      if (el.value) visible.value = el.value.scrollTop >= 700
     }
     const handleClick = (event) => {
       scrollToTop()
