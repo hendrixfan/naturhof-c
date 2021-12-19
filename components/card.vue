@@ -3,7 +3,6 @@
   .card-body.d-flex.flex-column
     .card__divider.my-3.bg-white
     h5.card-title.text-white.flex-grow-1(v-if="teaser") {{teaser}}
-    //img.card__image(:src="image.filename" v-if="image")
   .card-footer.border-0.m-0.bg-transparent
     .d-flex.my-3.align-items-center.justify-content-between
       h3.card-subtitle.text-white {{title}}

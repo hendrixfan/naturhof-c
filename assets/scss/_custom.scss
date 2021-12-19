@@ -42,7 +42,7 @@ html {
   font-family: "Inter";
 }
 // Body
-$font-family-sans-serif: "Inter",georgia,seri ;
+$font-family-sans-serif: "Inter",georgia,serif;
 $body-bg: rgba(250, 245, 255, 0.5);
 $body-color:#272c33;
 
@@ -98,4 +98,7 @@ $offcanvas-horizontal-width:  50vw;
 .navbar .navbar-nav .active::after {
   width: 100%;
 }
-
+.bi {
+  width: 1.2em;
+  height: auto;
+}
