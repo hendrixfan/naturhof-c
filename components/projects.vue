@@ -7,36 +7,37 @@ section.position-relative.overflow-hidden.bg-dark.min-vh-100.d-flex.flex-column.
           | {{title}}
   .container-fluid.mx-0.px-0
   .row.min-vh-30.justify-content-center
-    slide-animation.col-md-6(v-for="item in project_items")
+    slide-animation.col-md-6(v-for="(item, index) in project_items"  :direction="index % 2 == (0 || 1) ? 'left' : 'right'")
       .d-flex.justify-content-center.flex-column.text-center.align-items-center.p-5
         component.bg-dust(:is="item.icon" style="clip-path: circle(50% at 50% 50%);" width="100" height="100")
         h5.text-light.mt-3 {{item.title}}
         hr.bg-light
-        p.fs-5.text-light
+        p.fs-4.text-light
           | {{item.teaser}}
         button.text-light.btn.btn-link.btn-lg.fw-bolder.text-decoration-none
           | mehr zum Projekt
-          svg.bi.bi-arrow-up-right.fill-light.ms-2(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-            path(fill-rule='evenodd' stroke="black" stroke-width="10" style="stroke-width: 2px;" d='M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z')
-  .container-fluid.px-0.my-5
+          svg.bi.bi-arrow-up-right.fill-white.ms-2(xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewbox='0 0 16 16')
+            path(fill-rule='evenodd' stroke="white" stroke-width="10" style="stroke-width: 2px;" d='M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z')
+  .container-fluid.min-vh-100.d-flex.flex-column.justify-content-center.overflow-hidden
     .glide(ref="glideEl")
       .glide__track(data-glide-el="track")
         ul.glide__slides
-          li.glide__slide(v-for="slideItem in slide_items")
-            img.img-fluid.shadow.shadow-lg(:src="slideItem.image_item.filename" :title="slideItem.image_item.filename.title" width="730" style="height: 34rem; object-fit: cover;")
+          li.glide__slide.d-flex.justify-content-center(v-for="slideItem in slide_items")
+            img.lazyload.img-fluid.rounded.flex-fill(:data-src="slideItem.image_item.filename" :title="slideItem.image_item.filename.title" style="max-height: 700px; object-fit: contain; background: var(--bs-gray-600);")
       .row.justify-content-center.mt-5
         .col-md-10
           .glide__arrows.d-flex.justify-content-between.mb-3(data-glide-el='controls')
             button.text-white.glide__arrow--left.btn.btn-link.btn-lg.text-decoration-none(data-glide-dir='<' @click="handleGlideClick")
-              svg.me-2.bi.bi-chevron-left(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                path(fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z')
+              svg.bi.bi-chevron-compact-left.me-2(xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewbox='0 0 16 16' width="16" height="16")
+                path(fill-rule='evenodd' d='M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z')
               | zurück
             .text-white.align-self-center.fs-5
               | {{currentTitle}}
             button.text-white.glide__arrow--right.btn.btn-link.btn-lg.text-decoration-none(data-glide-dir='>' @click="handleGlideClick")
               | weiter
-              svg.ms-2.bi.bi-chevron-right(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                path(fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z')
+              svg.bi.bi-chevron-compact-right.ms-2(xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewbox='0 0 16 16' width="16" height="16")
+                path(fill-rule='evenodd' d='M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z')
+
 </template>
 <script>
 import {
@@ -92,11 +93,11 @@ export default defineComponent({
     onMounted(() => {
       glideInstance.value = new Glide(glideEl.value, {
         type: 'carousel',
-        width: 600,
         startAt: 0,
         focusAt: 'center',
         gap: 10,
-        perView: 3,
+        perView: 1,
+        peek: { before: 100, after: 50 },
         breakpoints: {
           1024: {
             startAt: 0,
@@ -125,11 +126,3 @@ export default defineComponent({
   }
 })
 </script>
-<style scoped>
-.glide__slide {
-  opacity:.3
-}
-.glide__slide--active {
-  opacity:1
-}
-</style>

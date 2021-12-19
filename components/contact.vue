@@ -1,5 +1,5 @@
 <template lang='pug'>
-scroll-effect-section.position-relative.overflow-hidden.bg-dark-shade.d-flex.flex-column.justify-content-center#contact(position="left" effectImageUrl="assets/images/karlikopf.png")
+scroll-effect-section.position-relative.overflow-hidden.bg-dark-shade.d-flex.flex-column.justify-content-center#contact(position="left" effectImageUrl="public/karlikopf.webp")
   .container.text-white.mt-5
     .row.mb-5
       .col-md-3
@@ -19,7 +19,9 @@ scroll-effect-section.position-relative.overflow-hidden.bg-dark-shade.d-flex.fle
           br
           | Fax 0371/7254753
           br
-          | Email: natur-hof@t-online.de
+          | Email:
+          span.reverse
+            |  {{email}}
   .container.pb-5
     .row.my-5.justify-content-center
       .col-lg-8
@@ -29,7 +31,7 @@ scroll-effect-section.position-relative.overflow-hidden.bg-dark-shade.d-flex.fle
       .col-md-5.offset-md-7
         .d-flex.mt-5
           .ratio.ratio-1x1
-            iframe(frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://www.openstreetmap.org/export/embed.html?bbox=12.93419122695923%2C50.79551258533433%2C12.937731742858888%2C50.79700112061798&layer=mapnik' style='border: 1px solid black')
+            iframe.lazyload(frameborder='0' scrolling='no' marginheight='0' marginwidth='0' data-src='https://www.openstreetmap.org/export/embed.html?bbox=12.93419122695923%2C50.79551258533433%2C12.937731742858888%2C50.79700112061798&layer=mapnik' style='border: 1px solid black; overflow: hidden;')
 </template>
 <script>
 import {
@@ -37,8 +39,18 @@ import {
 } from 'vue'
 export default defineComponent({
   setup(props) {
+    const email = computed(() => {
+      return "natur-hof@t-online.de".split("").reverse().join("")
+    })
     return {
+      email
     }
   }
 })
 </script>
+<style scoped>
+span.reverse {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+</style>

@@ -1,7 +1,7 @@
 <template lang='pug'>
 section.w-100.d-block(ref="sectionEl")
   slot
-  img.position-absolute.bottom-0.d-none.d-xl-block(:src="effectImageUrl", height="700" ref="imageEl")
+  img.position-absolute.bottom-0.d-none.d-xl-block.lazyload(:data-src="effectImageUrl", height="700" ref="imageEl")
 </template>
 <script>
 import {
@@ -12,7 +12,6 @@ import {
   watch,
   ref
 } from 'vue'
-import { useScroll } from '@vueuse/gesture'
 import { useWindowScroll } from '@vueuse/core'
 import { useMotionProperties, useSpring } from '@vueuse/motion'
 export default defineComponent({

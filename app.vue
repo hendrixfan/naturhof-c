@@ -2,6 +2,7 @@
 <NuxtPage/>
 </template>
 <script setup>
+import 'lazysizes';
 useMeta({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }

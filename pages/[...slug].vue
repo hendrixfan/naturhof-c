@@ -1,5 +1,5 @@
 <template lang="pug">
-.container
+.container.mt-5.pt-5
   .row.justify-content-center
     .col-8(v-html="htmlDescription")
 </template>
@@ -11,19 +11,25 @@ import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
 import { useAsyncState } from '@vueuse/core'
 import { useStoryApi } from "@storyblok/nuxt/composables"
 import { useRoute } from 'vue-router'
+import { watchOnce } from '@vueuse/core'
 export default defineComponent({
   layout: "simple-layout",
   setup(props) {
     const route = useRoute()
     const resolver = new RichTextResolver()
+    const htmlDescription = ref(null)
 
     const storyapi = useStoryApi();
     const config = useRuntimeConfig()
     const { state, isReady } = useAsyncState(async () => {
       const { data: { story: { content } } } = await storyapi.get(`cdn/stories/${route.params.slug[0]}`, { version: config.storyblokVersion })
-      return content
+      return content.body[0].body_text
     })
-    const htmlDescription = resolver.render(state.value)
+
+    watchOnce(state, () => {
+      htmlDescription.value = resolver.render(state.value)
+    })
+
     return {
       htmlDescription,
       state,
