@@ -1,5 +1,5 @@
 <template lang='pug'>
-scroll-effect-section.position-relative.overflow-hidden.bg-dark-shade.d-flex.flex-column.justify-content-center#contact(position="left" effectImageUrl="public/karlikopf.webp")
+scroll-effect-section.position-relative.overflow-hidden.bg-dark-shade.d-flex.flex-column.justify-content-center#contact(position="left" effectImageUrl="karlikopf.webp")
   .container.text-white.mt-5
     .row.mb-5
       .col-md-3
