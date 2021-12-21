@@ -23,7 +23,7 @@ section.position-relative.overflow-hidden.bg-dark.min-vh-100.d-flex.flex-column.
       .glide__track(data-glide-el="track")
         ul.glide__slides
           li.glide__slide.d-flex.justify-content-center(v-for="slideItem in slide_items")
-            img.lazyload.img-fluid.rounded.flex-fill(:data-src="slideItem.image_item.filename" :title="slideItem.image_item.filename.title" style="max-height: 700px; object-fit: contain; background: var(--bs-gray-600);")
+            img.lazyload.img-fluid.rounded.flex-fill(:data-src="slideItem.image_item.filename" height="700" :title="slideItem.image_item.filename.title" style="max-height: 700px; object-fit: contain; background: var(--bs-gray-600);")
       .row.justify-content-center.mt-5
         .col-md-10
           .glide__arrows.d-flex.justify-content-between.mb-3(data-glide-el='controls')
