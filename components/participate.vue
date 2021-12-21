@@ -1,5 +1,5 @@
 <template lang='pug'>
-scroll-effect-section.position-relative.overflow-hidden.bg-white.d-flex.flex-column.justify-content-center#participate(effectImageUrl="public/angus.webp")
+scroll-effect-section.position-relative.overflow-hidden.bg-white.d-flex.flex-column.justify-content-center#participate(effectImageUrl="angus.webp")
   .container.mb-5
     .row.my-5
       .col-lg-7

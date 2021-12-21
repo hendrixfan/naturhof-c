@@ -9,6 +9,9 @@ useMeta({
   ],
   bodyAttrs: {
     class: 'scroll-padding-base bg-white'
+  },
+  htmlAttrs: {
+    lang: 'de'
   }
 })
 </script>
