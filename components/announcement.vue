@@ -25,7 +25,10 @@ export default defineComponent({
   },
   setup(props) {
     const resolver = new RichTextResolver()
-    const htmlDescription = resolver.render(props.description)
+    const htmlDescription = ref(null)
+    onMounted(() => {
+      htmlDescription.value = resolver.render(props.description)
+    })
     return {
       htmlDescription
     }
