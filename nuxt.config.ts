@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     }
   ],
   modules: [
+    '@nuxtjs/sitemap',
     ["@storyblok/nuxt", { accessToken: process.env.STORYBLOK_API_KEY }]
   ],
   buildModules: [
