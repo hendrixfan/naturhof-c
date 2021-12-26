@@ -1,6 +1,6 @@
 <template lang='pug'>
 header.banner.w-100.position-fixed.top-0(role='banner' style='z-index:4;')
-  nav.navbar.navbar-expand-lg.navbar-light.nav-shadow.bg-dust#main-nav(ref="headerEl")
+  nav.navbar.navbar-expand-lg.navbar-light.nav-shadow.bg-dust#detail-nav(ref="headerEl")
     .container
       a.navbar-brand.py-0(href='/')
         Logo(width="160" ref="logoEl")

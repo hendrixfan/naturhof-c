@@ -1,5 +1,5 @@
 <template lang='pug'>
-.landscape#parallax-landscape(role="img" aria-label="Landschaft Euba Parallax")
+.landscape#parallax-landscape(role="img" aria-label="Landschaft Euba Parallax" style="min-height: 700px;")
   .landscape__layer(
      v-for="scene in sceneConf"
     :key="scene.key" :style="'--offset:' + scene.offset + '; --scrollPos: ' + y + 'px;'")

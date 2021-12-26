@@ -2,9 +2,9 @@
 .container-fluid.bg-light
   .row.justify-content-center.py-4
     .col-md-3.text-center
-      NuxtLink.text-decoration-none(to="satzung")
+      NuxtLink.text-decoration-none.text-dark(to="satzung")
         | Impressum
-      NuxtLink.text-decoration-none.ms-3(to="satzung")
+      NuxtLink.text-decoration-none.ms-3.text-dark(to="satzung")
         | Datenschutzerklärung
     .col-md-8.text-center.d-flex.justify-content-end
       a(href="https://github.com/hendrixfan/naturhof-c" target="_blank" rel="noopener").me-4
