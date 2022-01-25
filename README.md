@@ -1,7 +1,9 @@
 # naturhof-c
-Webseite des Naturhof Chemnitz e.V.
+Webseite Naturhof Chemnitz e.V.
 
 https://priceless-rosalind-5609ec.netlify.app/
+
+---
 
 # Nuxt 3 Minimal Starter
 
