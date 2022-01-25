@@ -1,5 +1,4 @@
-# naturhof-c
-Webseite Naturhof Chemnitz e.V.
+# Webseite Naturhof Chemnitz e.V.
 
 https://priceless-rosalind-5609ec.netlify.app/
 
