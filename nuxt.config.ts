@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   vite: {
     plugins: [svgLoader()]
   },
+  build: {
+    transpile: ['#app']
+  },
   ssr: true,
   css: [
     {
