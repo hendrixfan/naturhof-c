@@ -2,14 +2,14 @@
 
 $palette-colors: (
   "light": rgb(254,224,183),
-  "lighter": rgb(255,211,136),
-  "base-light": rgb(251,170,84),
-  "base-center": rgb(250,152,74),
-  "base": rgb(226,80,42),
-  "base-dark": rgb(200,58,48),
-  "base-darker": rgb(131,21,46),
-  "darker": rgb(87,10,44),
-  "dark": rgb(42,12,24)
+  "lighter": #ffe3d8,
+  "base-light": #ffe3d8,
+  "base-center": #ffe3d8,
+  "base": #f5d1c1,
+  "base-dark": #f1cab9,
+  "base-darker": #e3b6a3,
+  "darker": #d39a87,
+  "dark": #b87e70
 )!default;
 
 @function color-palette($key: "base") {
