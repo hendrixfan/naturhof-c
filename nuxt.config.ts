@@ -1,7 +1,7 @@
-import { defineNuxtConfig } from 'nuxt3'
 import svgLoader from "vite-svg-loader"
 
 export default defineNuxtConfig({
+  target: 'static',
   publicRuntimeConfig: {
     storyblokVersion: process.env.STORYBLOK_VERSION || "draft"
   },
@@ -11,17 +11,19 @@ export default defineNuxtConfig({
   vite: {
     plugins: [svgLoader()]
   },
-  ssr: true,
+  build: {
+    transpile: ['#app']
+  },
+  ssr: false,
   css: [
     {
       src: '~/assets/scss/main.scss', lang: 'scss'
     }
   ],
   modules: [
-    '@nuxtjs/sitemap',
     ["@storyblok/nuxt", { accessToken: process.env.STORYBLOK_API_KEY }]
   ],
   buildModules: [
-    '@vueuse/core/nuxt'
+    '@vueuse/nuxt'
   ],
 })
