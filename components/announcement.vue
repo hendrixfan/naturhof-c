@@ -6,7 +6,7 @@ section.position-relative.overflow-hidden.min-vh-30.bg-dark.mt-n1.d-flex.flex-co
         h3.card-title.position-relative.text-white.text-center.w-25.bg-dark.ms-5(style="margin-top: -1.2rem !important;")
           | {{title}}
         .card-body
-          p.text-left.link-light.fs-5.text-white.text-decoration-none(v-html="htmlDescription")
+          p.text-left.link-light.fs-5.text-white.text-decoration-none(v-html="htmlDescription" v-if="htmlDescription")
 </template>
 <script>
 import {

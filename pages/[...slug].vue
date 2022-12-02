@@ -1,13 +1,14 @@
 <template lang="pug">
 .container.mt-5.pt-5
   .row.justify-content-center
-    .col-8(v-html="htmlDescription")
+    .col-lg-8(v-html="htmlDescription" v-if="isReady")
 </template>
 <script>
 import {
   defineComponent,
 } from 'vue'
 import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
+import RichTextSchema from '~/assets/other/schema.js'
 import { useAsyncState } from '@vueuse/core'
 import { useStoryApi } from "@storyblok/nuxt/composables"
 import { useRoute } from 'vue-router'
@@ -16,7 +17,7 @@ export default defineComponent({
   layout: "simple-layout",
   setup(props) {
     const route = useRoute()
-    const resolver = new RichTextResolver()
+    const resolver = new RichTextResolver(RichTextSchema)
     const htmlDescription = ref(null)
 
     const storyapi = useStoryApi();
