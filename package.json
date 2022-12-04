@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi generate",
-    "clean": "cd .output/server && rm -rf node_modules && yarn"
+    "clean": "cd .output/server && rm -rf node_modules && yarn",
+    "deploy": "push-dir --dir=dist --branch=pages --cleanup"
   },
   "devDependencies": {
     "axios": "^0.27.0",
@@ -11,6 +12,7 @@
     "nuxt": "3.0.0",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
+    "push-dir": "^0.4.1",
     "sass": "^1.43.4",
     "sass-loader": "10",
     "vite-svg-loader": "^3.6.0"
