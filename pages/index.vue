@@ -13,9 +13,8 @@ backtop
   };
 </script>
 <script setup>
-import { useStoryApi } from "@storyblok/nuxt/composables";
 const config = useRuntimeConfig()
-const storyapi = useStoryApi();
+const storyapi = useStoryblokApi();
 const { data, pending } = await useAsyncData('index', async () => {
   const { data: { story: { content } } } = await storyapi.get("cdn/stories/home", { version: config.storyblokVersion })
   return content

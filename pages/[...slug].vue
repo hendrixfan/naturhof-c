@@ -7,20 +7,20 @@
 import {
   defineComponent,
 } from 'vue'
-import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
 import RichTextSchema from '~/assets/other/schema.js'
 import { useAsyncState } from '@vueuse/core'
-import { useStoryApi } from "@storyblok/nuxt/composables"
 import { useRoute } from 'vue-router'
 import { watchOnce } from '@vueuse/core'
+import cloneDeep from 'clone-deep'
 export default defineComponent({
   layout: "simple-layout",
   setup(props) {
+    const mySchema = cloneDeep(RichTextSchema)
     const route = useRoute()
-    const resolver = new RichTextResolver(RichTextSchema)
+    const resolver = new renderRichText(mySchema)
     const htmlDescription = ref(null)
 
-    const storyapi = useStoryApi();
+    const storyapi = useStoryblokApi();
     const config = useRuntimeConfig()
     const { state, isReady } = useAsyncState(async () => {
       const { data: { story: { content } } } = await storyapi.get(`cdn/stories/${route.params.slug[0]}`, { version: config.storyblokVersion })

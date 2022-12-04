@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from 'nuxt/config';
 import svgLoader from "vite-svg-loader"
 
 export default defineNuxtConfig({
@@ -21,7 +22,11 @@ export default defineNuxtConfig({
     }
   ],
   modules: [
-    ["@storyblok/nuxt", { accessToken: process.env.STORYBLOK_API_KEY }]
+    ["@storyblok/nuxt", {
+      accessToken: process.env.STORYBLOK_API_KEY,
+      cacheProvider: 'memory',
+      useApiClient: true
+    }]
   ],
   buildModules: [
     '@vueuse/nuxt'
