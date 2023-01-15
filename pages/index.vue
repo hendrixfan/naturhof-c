@@ -1,10 +1,10 @@
 <template lang="pug">
-Title {{data.metadata.title}}
-Meta(name="description" :content="data.metadata.description")
+Title {{}}
+Meta(name="description" :content="home.meta.description")
 h1(style="font-size: 2px; margin: 0px;") Naturhof Chemnitz e.V.
 section.position-relative.overflow-hidden.bg-dust.min-vh-70.d-flex.flex-column.justify-content-center
   landscape
-component(v-for="block in data.body" :is="block.component" v-bind="block" :key="block.id")
+component(v-for="block in home.data.attributes.body" :is="block.meta.name" v-bind="block" :key="block.meta.uuid")
 backtop
 </template>
 <script>
@@ -13,10 +13,11 @@ backtop
   };
 </script>
 <script setup>
-const config = useRuntimeConfig()
-const storyapi = useStoryblokApi();
-const { data, pending } = await useAsyncData('index', async () => {
-  const { data: { story: { content } } } = await storyapi.get("cdn/stories/home", { version: config.storyblokVersion })
-  return content
-}, { lazy: true, server: true })
+const { findOne } = useStrapi()
+const { data: home, pending, refresh, error } = await useAsyncData('home', () => {
+  return findOne('home', '', {
+    populate: ["body", "body.meta"],
+  })
+})
+onMounted(() => refresh())
 </script>

@@ -2,13 +2,11 @@ import { defineNuxtConfig } from 'nuxt/config';
 import svgLoader from "vite-svg-loader"
 
 export default defineNuxtConfig({
+  components: {
+    global: true,
+    dirs: ['~/components']
+  },
   target: 'static',
-  publicRuntimeConfig: {
-    storyblokVersion: process.env.STORYBLOK_VERSION || "draft"
-  },
-  privateRuntimeConfig: {
-    storyblokApiKey: process.env.STORYBLOK_API_KEY
-  },
   vite: {
     plugins: [svgLoader()]
   },
@@ -21,13 +19,14 @@ export default defineNuxtConfig({
       src: '~/assets/scss/main.scss', lang: 'scss'
     }
   ],
-  modules: [
-    ["@storyblok/nuxt", {
-      accessToken: process.env.STORYBLOK_API_KEY,
-      cacheProvider: 'memory',
-      useApiClient: true
-    }]
-  ],
+  modules: ['@nuxtjs/strapi'],
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    prefix: '/api',
+    version: 'v4',
+    cookie: {},
+    cookieName: 'strapi_jwt'
+  },
   buildModules: [
     '@vueuse/nuxt'
   ],

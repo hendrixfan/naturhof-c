@@ -7,7 +7,7 @@ section.position-relative.overflow-hidden.bg-white.min-vh-100.d-flex.flex-column
         hr.w-100
     .row.justify-content-center.mt-5
       slide-animation.col-md-8(direction="right")
-        p.fs-5(v-html="htmlDescription")
+        //p.fs-5(v-html="htmlDescription")
     .row.justify-content-center.mt-5.min-vh-100
       slide-animation.col-md-8
         h5.text-dark Dabei hat unser Verein folgende Schwerpunkte:
@@ -26,7 +26,6 @@ section.position-relative.overflow-hidden.bg-white.min-vh-100.d-flex.flex-column
 import {
   defineComponent,
 } from 'vue'
-import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
 import Orchard from '~/assets/images/orchard.svg';
 import Gras from '~/assets/images/gras.svg';
 import Bee from '~/assets/images/bee.svg';
@@ -65,11 +64,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const resolver = new RichTextResolver()
-    const htmlDescription = resolver.render(props.description)
-    return {
-      htmlDescription,
-    }
+
   }
 })
 </script>

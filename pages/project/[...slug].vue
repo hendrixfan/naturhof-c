@@ -38,7 +38,7 @@ import {
 export default defineComponent({
   layout: "simple-layout",
   setup(props) {
-    useMeta({
+    useHead({
       meta: [
         { name: 'viewport', content: "user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" }
       ],
