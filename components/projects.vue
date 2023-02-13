@@ -88,7 +88,7 @@ export default defineComponent({
 
     const currentTitle = computed(
       () =>
-        props.slide_items[currentImageIndex.value].image_item.title
+        props.slide_items[currentImageIndex.value]?.image_item.title
     )
     onMounted(() => {
       glideInstance.value = new Glide(glideEl.value, {

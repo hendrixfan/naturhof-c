@@ -16,7 +16,7 @@ backtop
 const { findOne } = useStrapi()
 const { data: home, pending, refresh, error } = await useAsyncData('home', () => {
   return findOne('home', '', {
-    populate: ["body", "body.meta"],
+    populate: "deep"
   })
 })
 onMounted(() => refresh())

@@ -10,15 +10,12 @@ section.position-relative.overflow-hidden.bg-white.min-vh-100.d-flex.flex-column
         //p.fs-5(v-html="htmlDescription")
     .row.justify-content-center.mt-5.min-vh-100
       slide-animation.col-md-8
-        h5.text-dark Dabei hat unser Verein folgende Schwerpunkte:
-      slide-animation.col-md-8.d-flex.justify-content-start(v-for="(item, index) in feature_items" :direction="index % 2 == (0 || 1) ? 'left' : 'right'")
+        h5.text-dark {{description}}
+      slide-animation.col-md-8.d-flex.justify-content-start(v-for="(item, index) in items" :direction="index % 2 == (0 || 1) ? 'left' : 'right'")
         .icon.flex-grow-1.align-self-center.me-5
           component.bg-dust(:is="item.icon" style="clip-path: circle(50% at 50% 50%);" width="100" height="100")
         p.fs-5.align-self-center.w-100.mb-0 {{item.description}}
 .container-fluid.overflow-hidden
-  .row.justify-content-end(style="margin-bottom: -9rem !important;")
-    .col-md-2.me-5
-      Bird.fill-dark.img-fluid(style="transform: rotate(-10deg);")
   .row.mb-n4.mt-n5
     Gras.fill-dark
 </template>
@@ -26,37 +23,21 @@ section.position-relative.overflow-hidden.bg-white.min-vh-100.d-flex.flex-column
 import {
   defineComponent,
 } from 'vue'
-import Orchard from '~/assets/images/orchard.svg';
 import Gras from '~/assets/images/gras.svg';
-import Bee from '~/assets/images/bee.svg';
-import Bird from '~/assets/images/bird.svg';
-import Sharing from '~/assets/images/sharing.svg';
-import PublicRelation from '~/assets/images/public-relation.svg';
-import Counsellor from '~/assets/images/counsellor.svg';
-import NatureProtection from '~/assets/images/nature-protection.svg';
-import Gardening from '~/assets/images/gardening.svg';
 import Roots from '~/assets/images/roots.svg';
 export default defineComponent({
   components: {
-    Orchard,
-    Bee,
-    Sharing,
-    PublicRelation,
-    Counsellor,
-    NatureProtection,
-    Gardening,
     Gras,
     Roots,
-    Bird
   },
   props: {
     title: {
       type: String,
     },
     description: {
-      type: Object,
+      type: String,
     },
-    feature_items: {
+    items: {
       type: Array
     },
     image_left: {
