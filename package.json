@@ -4,7 +4,7 @@
     "dev": "nuxi dev",
     "build": "nuxi generate",
     "clean": "cd .output/server && rm -rf node_modules && yarn",
-    "deploy": "push-dir --dir=dist --branch=pages --cleanup"
+    "deploy": "push-dir --dir=dist --branch=pages --cleanup --force"
   },
   "devDependencies": {
     "@nuxtjs/strapi": "^1.6.3",
