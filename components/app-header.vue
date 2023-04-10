@@ -70,8 +70,3 @@ export default defineComponent({
   }
 })
 </script>
-<style>
-.nav-shadow {
-  box-shadow: ;
-}
-</style>
