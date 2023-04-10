@@ -1,0 +1,1 @@
+import t from"./sub-footer.64618d78.js";import{o as r,a as n,e as s,i as p}from"./entry.6d40c333.js";import{_ as a}from"./_plugin-vue_export-helper.a1a6add7.js";const c={class:"footer bg-white mt-auto",ref:"footerEl"};function _(o,m,i,u,d,l){const e=t;return r(),n("footer",c,[s(e)],512)}const f=p({setup(o){return{}}}),b=a(f,[["render",_]]);export{b as default};
