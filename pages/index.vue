@@ -15,7 +15,6 @@ const { data: home, refresh } = await useAsyncData('home', () => {
   return findOne('home', '', {
       populate: "deep"
     })
-  console.log(res)
 })
 
 const { data: navigation } = await useAsyncData('navigation', () => {
