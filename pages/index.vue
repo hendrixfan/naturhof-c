@@ -2,7 +2,7 @@
 Title {{}}
 //Meta(name="description" :content="home.meta.description")
 NuxtLayout(name="home")
-  h1(style="font-size: 2px; margin: 0px;") Naturhof Chemnitz e.V.
+  h1(style="font-size: 2px; margin: 0px;") Natur-Hof Chemnitz e.V.
   section.position-relative.overflow-hidden.bg-dust.min-vh-70.d-flex.flex-column.justify-content-center
     landscape
   component(v-for="block in home.data.attributes.body" :is="block.meta.name" v-bind="block" :key="block.meta.uuid")
