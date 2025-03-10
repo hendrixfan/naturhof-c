@@ -8,7 +8,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^8.0.0",
     "@storyblok/nuxt": "^3.0.0-beta.1",
-    "axios": "^0.24.0",
+    "axios": "^1.8.2",
     "fibers": "^5.0.0",
     "nuxt3": "3.0.0-27307420.6a25d3e",
     "pug": "^3.0.2",
